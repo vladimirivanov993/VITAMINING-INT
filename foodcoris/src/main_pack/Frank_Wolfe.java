@@ -5,7 +5,7 @@ public class Frank_Wolfe {
 	public Frank_Wolfe() {
 	}
 
-/**умножение числа на вектор*/	
+/**СѓРјРЅРѕР¶РµРЅРёРµ С‡РёСЃР»Р° РЅР° РІРµРєС‚РѕСЂ*/	
 public static double[] mul(double a, double[] m){
 	double[] r=new double[m.length];
 	for(int i=0;i<m.length;i++){
@@ -15,7 +15,7 @@ public static double[] mul(double a, double[] m){
 	
 }
 
-/**стандартное скалярное произведение векторов*/
+/**СЃС‚Р°РЅРґР°СЂС‚РЅРѕРµ СЃРєР°Р»СЏСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РІРµРєС‚РѕСЂРѕРІ*/
 public static double mul(double[] a, double[] b){
 	double r=0;
 	for(int i=0;i<Math.min(a.length,b.length);i++){
@@ -24,7 +24,7 @@ public static double mul(double[] a, double[] b){
 	return r;
 }
 
-/**умножение матрицы на вектор*/
+/**СѓРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РІРµРєС‚РѕСЂ*/
 public static double[] mul(double[][] A, double[] b){
 	double[] r=new double[A.length];
 	for(int i=0;i<A.length;i++){
@@ -33,7 +33,7 @@ public static double[] mul(double[][] A, double[] b){
 	return r;
 }
 
-/**разность векторов*/
+/**СЂР°Р·РЅРѕСЃС‚СЊ РІРµРєС‚РѕСЂРѕРІ*/
 public static double[] minus(double[] a, double[] b){
 double[] r=new double[Math.min(a.length,b.length)];
 for(int i=0;i<Math.min(a.length, b.length);i++){
@@ -42,7 +42,7 @@ r[i]=a[i]-b[i];
 return r;
 }
 
-/**сумма векторов*/
+/**СЃСѓРјРјР° РІРµРєС‚РѕСЂРѕРІ*/
 public static double[] plus(double[] a, double[] b){
 double[] r=new double[Math.min(a.length,b.length)];
 for(int i=0;i<Math.min(a.length, b.length);i++){
@@ -52,7 +52,7 @@ return r;
 }
 
 
-/** градиент <Ax,x>+<b,x> = 2A(uk)+b */ 
+/** РіСЂР°РґРёРµРЅС‚ <Ax,x>+<b,x> = 2A(uk)+b */ 
 public static double[] gradient(double[][] A, double[] b, double[] uk){
 	double[] r=mul(A,uk);
 	return r=plus(mul(2,r),b);
@@ -60,7 +60,7 @@ public static double[] gradient(double[][] A, double[] b, double[] uk){
 
 
 
-/**умножение числа на матрицу*/
+/**СѓРјРЅРѕР¶РµРЅРёРµ С‡РёСЃР»Р° РЅР° РјР°С‚СЂРёС†Сѓ*/
 public static double[][] mul(double a, double[][] A){
 	for(int i=0;i<A.length;i++){
 		for(int j=0;j<A[0].length;j++){
@@ -80,12 +80,12 @@ public static void toPrint(double[] a){
 }
 
 
-/**функция <Ax,x>+<b,x>*/
+/**С„СѓРЅРєС†РёСЏ <Ax,x>+<b,x>*/
 public static double quadrf(double[][] A,double[] b,double[] uk){
 	return mul(mul(A,uk),uk)+mul(b,uk); 
 }
 
-/**получение решения с использованием симплекс-метода*/
+/**РїРѕР»СѓС‡РµРЅРёРµ СЂРµС€РµРЅРёСЏ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј СЃРёРјРїР»РµРєСЃ-РјРµС‚РѕРґР°*/
 public static double[] getSolSimplex(double[] uk, double[][] A,double[] b, double[][] simp_A, double[] simp_b, double eps){
 	double[] s=new Simplex(simp_A, simp_b, gradient(A, b, uk)).primal();
 	int k=0;
@@ -104,7 +104,7 @@ public static double[] getSolSimplex(double[] uk, double[][] A,double[] b, doubl
 
 
 
-/**решение задачи методом перебора точек R2 с шагом eps*/
+/**СЂРµС€РµРЅРёРµ Р·Р°РґР°С‡Рё РјРµС‚РѕРґРѕРј РїРµСЂРµР±РѕСЂР° С‚РѕС‡РµРє R2 СЃ С€Р°РіРѕРј eps*/
 public static double[] gM(double[][] A, double[] b, double[] c, double eps, double[][] A2, double[] b2){
 	double max=Double.NEGATIVE_INFINITY;
 	double curMax=0;
@@ -119,7 +119,7 @@ public static double[] gM(double[][] A, double[] b, double[] c, double eps, doub
 }
 
 
-/**проверка, что вектор находится в положительном ортанте пространства Rn*/
+/**РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ РІРµРєС‚РѕСЂ РЅР°С…РѕРґРёС‚СЃСЏ РІ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРј РѕСЂС‚Р°РЅС‚Рµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° Rn*/
 private static boolean positive(double[] minus) {
 	boolean b=true;
 	for(int i=0;i<minus.length;i++){	
@@ -138,14 +138,14 @@ double[] b={1,7};
 double[] c={32,8};
 Simplex s=new Simplex(A, b, c);
 double[] sp=s.primal();
-System.out.print("Проверка симплекс-метода(линейные функция и ограничения): ");toPrint(sp);
+System.out.print("РџСЂРѕРІРµСЂРєР° СЃРёРјРїР»РµРєСЃ-РјРµС‚РѕРґР°(Р»РёРЅРµР№РЅС‹Рµ С„СѓРЅРєС†РёСЏ Рё РѕРіСЂР°РЅРёС‡РµРЅРёСЏ): ");toPrint(sp);
 
 double[][] gA={{-1,0},{0,-1}};
 double[] gb={32,8};
 double[]d=gradient(gA,gb,new double[]{0,0});
 Simplex s2=new Simplex(A,b,d);
 double[] sp2=s2.primal();
-System.out.print("Проверка корректности применения симплекс метода к градиенту квадратичной функции: ");toPrint(sp2);
+System.out.print("РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РїСЂРёРјРµРЅРµРЅРёСЏ СЃРёРјРїР»РµРєСЃ РјРµС‚РѕРґР° Рє РіСЂР°РґРёРµРЅС‚Сѓ РєРІР°РґСЂР°С‚РёС‡РЅРѕР№ С„СѓРЅРєС†РёРё: ");toPrint(sp2);
 
 double[][] gA2={ {4,8},{8,10} };
 double[] gb2={7,11};
@@ -153,14 +153,14 @@ double[] uk2={2,3};
 double[][] A2={{-1,1},{0.75, -1},{0.5,1}};
 double[] b2={3,1.5,6};
 
-System.out.print("Проверка корректности функции вычисления градиента { {4,8},{8,10} }+{7,11} в точке: {2,3}: ");toPrint(gradient(gA2,gb2,uk2));
-System.out.print("Решение задачи методом условного градиента с функцией (1): ");toPrint(getSolSimplex(uk2, gA2, gb2,  A2, b2,0.01));
-System.out.print("Решение задачи методом перебора с функцией (1): ");toPrint(gM(gA2,  gb2, new double[]{0,6,6}, 0.1, A2, b2)); //eps
+System.out.print("РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё С„СѓРЅРєС†РёРё РІС‹С‡РёСЃР»РµРЅРёСЏ РіСЂР°РґРёРµРЅС‚Р° { {4,8},{8,10} }+{7,11} РІ С‚РѕС‡РєРµ: {2,3}: ");toPrint(gradient(gA2,gb2,uk2));
+System.out.print("Р РµС€РµРЅРёРµ Р·Р°РґР°С‡Рё РјРµС‚РѕРґРѕРј СѓСЃР»РѕРІРЅРѕРіРѕ РіСЂР°РґРёРµРЅС‚Р° СЃ С„СѓРЅРєС†РёРµР№ (1): ");toPrint(getSolSimplex(uk2, gA2, gb2,  A2, b2,0.01));
+System.out.print("Р РµС€РµРЅРёРµ Р·Р°РґР°С‡Рё РјРµС‚РѕРґРѕРј РїРµСЂРµР±РѕСЂР° СЃ С„СѓРЅРєС†РёРµР№ (1): ");toPrint(gM(gA2,  gb2, new double[]{0,6,6}, 0.1, A2, b2)); //eps
 
 double[][] gA3={{-40,-8},{-8,-110}};
 double[] gb3={700,111};
 
-System.out.print("Решение задачи методом условного градиента с функцией (2): ");toPrint(getSolSimplex(uk2, gA3, gb3,  A2, b2,0.01));
-System.out.print("Решение задачи методом перебора с функцией (2): ");toPrint(gM(gA3,  gb3, new double[]{0,6,6}, 0.1, A2, b2)); //eps
+System.out.print("Р РµС€РµРЅРёРµ Р·Р°РґР°С‡Рё РјРµС‚РѕРґРѕРј СѓСЃР»РѕРІРЅРѕРіРѕ РіСЂР°РґРёРµРЅС‚Р° СЃ С„СѓРЅРєС†РёРµР№ (2): ");toPrint(getSolSimplex(uk2, gA3, gb3,  A2, b2,0.01));
+System.out.print("Р РµС€РµРЅРёРµ Р·Р°РґР°С‡Рё РјРµС‚РѕРґРѕРј РїРµСЂРµР±РѕСЂР° СЃ С„СѓРЅРєС†РёРµР№ (2): ");toPrint(gM(gA3,  gb3, new double[]{0,6,6}, 0.1, A2, b2)); //eps
 }	
 }
