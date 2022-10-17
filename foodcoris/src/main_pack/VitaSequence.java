@@ -3,7 +3,7 @@ package main_pack;
 import java.util.Vector;
 
 public class VitaSequence {
-    Vector<String> vs2=new Vector<String>();
+    Vector<String> vs2 = new Vector<String>();
 
     double[] b; //стоимость продуктов
 //	double[] b = {23,100,72,439,200,19,52,20,15,17,24,250,40,35,75,235,95,110,520,537,50,460,115,450,162,60,75,60,48,180,65,79,440,45,65,75,103,350,260,168,90,165,200,51,98,85,180,54,65,59,75,40,170,173,119,400,43,26};
@@ -14,13 +14,14 @@ public class VitaSequence {
     Vector<String> vs; //линия строки данных - показатели количества витамин в продуктах
 
     Vector<String> names; //имена продуктов, попадающих в результат, количества витамин в результате; также это все строки, которые пойдут в основной отчет
-    
+
     double[] massive_overfit; //вектор перегрузки значения
- 	public VitaSequence() {
-		
-		// TODO Auto-generated constructor stub
-		
-		
-	}
+
+    public VitaSequence() {
+
+        // TODO Auto-generated constructor stub
+
+
+    }
 
 }
